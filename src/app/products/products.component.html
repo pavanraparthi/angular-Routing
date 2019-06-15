@@ -1,3 +1,11 @@
-<p>
-products works!
-</p>
+<div class="products-holder">
+  <div class='products-list'>
+    <div *ngFor='let product of productList' class='item-holder' (click)="onProductSelect(product.id)">
+      <div> {{product.name}}</div>
+      <div>{{product.description}}</div>
+    </div>
+  </div>
+  <div class='product-desc'>
+    <app-product-details *ngIf='userSelectedProduct' [selectedProduct]='userSelectedProduct'></app-product-details>
+  </div>
+</div>

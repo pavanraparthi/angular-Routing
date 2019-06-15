@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/product';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +8,14 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  @Input()
-  products: Product[];
-
-  productImgBase64:string = 'data:image/jpeg;base64,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';
-
-  imgSafeUrl:SafeUrl;
-  selectedProductId:string;
-  
-  constructor(private _sanitizer:DomSanitizer) { }
+  productsLoaded:boolean = false;
+  constructor(private _router:Router) { }
 
   ngOnInit() {
-    this.imgSafeUrl = this._sanitizer.bypassSecurityTrustUrl(this.productImgBase64);
-    this.selectedProductId = this.products[0].id;
   }
 
+  loadProducts() {
+    this.productsLoaded = true;
+    this._router.navigate(['products']);
+  }
 }

@@ -1,26 +1,5 @@
 <div class='home-container'>
     <h3>List Of Products</h3>
-    <div class="products-holder">
-      <div class='products-list'>
-        <div *ngFor='let product of products' class='item-holder'>
-          <div> {{product.name}}</div>
-          <div>{{product.description}}</div>
-        </div>
-      </div>
-      <div class='product-desc'>
-        <div class='product-top'>
-          <div class='product-image'>
-            <img [src]='imgSafeUrl'>
-          </div>
-          <div class='product-details'>
-              <span>{{products[selectedProductId].id}}</span>
-              <span>{{products[selectedProductId].name}}</span>
-              <span>{{products[selectedProductId].cost}}</span>
-          </div>
-        </div>
-        <div class='product-bottom'>
-          <span>{{products[selectedProductId].description}}</span>
-        </div>
-      </div>
-    </div>
+    <input type="button" *ngIf="!productsLoaded" value="LoadProducts" (click)="loadProducts()">
+    <router-outlet></router-outlet>
 </div>

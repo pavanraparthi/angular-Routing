@@ -1,3 +1,13 @@
-<p>
-product-details works!
-</p>
+<div class='product-top'>
+  <div class='product-image'>
+    <img [src]='imgSafeUrl'>
+  </div>
+  <div class='product-details'>
+      <span>ID: {{selectedProduct.id}}</span>
+      <span>Name: {{selectedProduct.name}}</span>
+      <span>Cost: {{selectedProduct.cost}}</span>
+  </div>
+</div>
+<div class='product-bottom'>
+  <span>{{selectedProduct.description}}</span>
+</div>
