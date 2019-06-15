@@ -30,4 +30,27 @@
 {
   float: left;
   margin: 10px 20px;
+  width: calc(70% - 40px);
+}
+
+.product-top
+{
+  display: inline;
+}
+
+.product-details span
+{
+    display: block;
+}
+
+.product-image
+{
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+.product-bottom
+{
+
 }
