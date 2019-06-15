@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   @Input()
   products: Product[];
 
+  
   constructor() { }
 
   ngOnInit() {
