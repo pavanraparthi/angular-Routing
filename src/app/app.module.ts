@@ -21,6 +21,7 @@ const routes:Routes = [
   imports:[ BrowserModule, FormsModule,
           RouterModule.forRoot(routes) ],
   declarations: [ AppComponent, HomeComponent, ProductsComponent, ProductDetailsComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: []
 })
 export class AppModule { }

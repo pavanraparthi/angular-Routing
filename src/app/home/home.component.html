@@ -1,9 +1,14 @@
 <div class='home-container'>
     <h3>List Of Products</h3>
-    <div class="product-holder">
-      <div *ngFor='let product of products' class='item-holder'>
-        <div> {{product.name}}</div>
-        <div>{{product.description}}</div>
+    <div class="products-holder">
+      <div class='products-list'>
+        <div *ngFor='let product of products' class='item-holder'>
+          <div> {{product.name}}</div>
+          <div>{{product.description}}</div>
+        </div>
+      </div>
+      <div class='product-desc'>
+        <img [src]='imgSafeUrl'>
       </div>
     </div>
 </div>

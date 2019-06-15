@@ -5,7 +5,7 @@
 
 .item-holder
 {
-  max-width: 30%;
+  
   background-color: #fdddfd;
   padding: 10px;
   margin: 0 10px 10px 0;
@@ -14,8 +14,20 @@
 {
   background-color: #d6d3de;
 }
-.product-holder
+.products-list
 {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: scroll
+}
+
+.products-list
+{
+  width: 30%;
+  float: left;
+}
+
+.product-desc
+{
+  float: left;
+  margin: 10px 20px;
 }
