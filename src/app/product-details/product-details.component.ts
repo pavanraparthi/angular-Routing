@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Product } from '../models/product';
 import { SafeUrl } from '@angular/platform-browser';
 import { ProductService } from '../services/product.service';
@@ -8,7 +8,7 @@ import { ProductService } from '../services/product.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnChanges {
   @Input()
   selectedProduct:Product;
   imgSafeUrl:SafeUrl;
@@ -17,6 +17,10 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.imgSafeUrl = this._productService.getDefaultProductImage();
+  }
+
+  ngOnChanges(){
+    // console.table(this.selectedProduct);  
   }
 
 }
