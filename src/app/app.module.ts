@@ -8,11 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductService } from './services/product.service';
+import { ProductActivateService } from './services/product-activate.service';
 
 
 const routes:Routes = [
-  {path:'products',component:ProductsComponent},
-  {path:'products/:id',component:ProductsComponent}
+  {path:'products',component:ProductsComponent, canActivate:[ProductActivateService]},
+  {path:'products/:id',component:ProductsComponent, canActivate:[ProductActivateService]}
 ]
 
 @NgModule({
@@ -20,6 +21,6 @@ const routes:Routes = [
           RouterModule.forRoot(routes) ],
   declarations: [ AppComponent, HomeComponent, ProductsComponent, ProductDetailsComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ ProductService ]
+  providers: [ ProductService, ProductActivateService ]
 })
 export class AppModule { }
