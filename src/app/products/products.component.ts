@@ -16,18 +16,21 @@ export class ProductsComponent implements OnInit {
 
   constructor(private _productService:ProductService, private _router:Router,private _route:ActivatedRoute) {
     this._route.params.subscribe( params => {
+    this.productList = this._productService.getProductList();
+    this.selectedProduct = this.productList[0].id;
+    this.userSelectedProduct = this.productList[0]
+      
       if(params['id']){
         this.selectedProduct = params['id'];
         this.userSelectedProduct = this._productService.getProductList()
                                       .filter(product => product.id === this.selectedProduct)[0];
+        // console.log('id :: '+params['id']);                              
+        // console.table(this.userSelectedProduct);                                      
       }
     })
   }
 
   ngOnInit() {
-    this.productList = this._productService.getProductList();
-    this.selectedProduct = this.productList[0].id;
-    this.userSelectedProduct = this.productList[0]
   }
 
   onProductSelect(id:string) {
