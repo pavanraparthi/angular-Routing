@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   productsLoaded:boolean = false;
-  constructor(private _router:Router) { }
+  constructor(private _router:Router, private _productService:ProductService) { }
 
   ngOnInit() {
+    this.productsLoaded = this._productService.isProductListLoaded();
   }
 
   loadProducts() {
+    this._productService.loadProductList();
     this.productsLoaded = true;
     this._router.navigate(['products']);
   }
